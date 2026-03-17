@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Diabetes Readmission — Najib Ishiyaku Njidda</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --navy:#0f1923;--navy2:#162030;--gold:#c9a84c;--gold2:#e8c96a;
+  --light:#f4f1ec;--text:#2a2a2a;--muted:#6a6a6a;
+}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.7;color:var(--text);background:var(--light);}
+
+/* TOP BAR */
+.topbar{
+  position:sticky;top:0;z-index:100;
+  background:var(--navy);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0.9rem 3rem;
+  border-bottom:1px solid rgba(201,168,76,0.15);
+}
+.topbar-left{display:flex;align-items:center;gap:1.2rem;}
+.back-btn{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  color:rgba(255,255,255,0.6);text-decoration:none;
+  font-size:0.83rem;font-weight:400;
+  padding:0.4rem 0.9rem;border-radius:6px;
+  border:1px solid rgba(255,255,255,0.12);
+  transition:all 0.2s;
+}
+.back-btn:hover{color:var(--gold2);border-color:rgba(201,168,76,0.4);background:rgba(201,168,76,0.06);}
+.back-btn svg{width:14px;height:14px;}
+.topbar-name{
+  font-family:'Fraunces',serif;font-size:1rem;font-weight:600;
+  color:rgba(255,255,255,0.9);text-decoration:none;
+}
+.topbar-right{display:flex;gap:0.75rem;align-items:center;}
+.btn-live{
+  display:inline-flex;align-items:center;gap:0.4rem;
+  background:var(--gold);color:var(--navy);
+  padding:0.45rem 1.1rem;border-radius:6px;
+  font-size:0.82rem;font-weight:500;text-decoration:none;
+  transition:all 0.2s;
+}
+.btn-live:hover{background:var(--gold2);transform:translateY(-1px);}
+.btn-gh{
+  display:inline-flex;align-items:center;gap:0.4rem;
+  background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.75);
+  border:1px solid rgba(255,255,255,0.15);
+  padding:0.45rem 1.1rem;border-radius:6px;
+  font-size:0.82rem;font-weight:400;text-decoration:none;
+  transition:all 0.2s;
+}
+.btn-gh:hover{border-color:var(--gold);color:var(--gold2);background:rgba(201,168,76,0.06);}
+.btn-live svg,.btn-gh svg{width:13px;height:13px;}
+
+/* HERO */
+.project-hero{
+  background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 100%);
+  padding:4rem 5rem 3.5rem;
+  position:relative;overflow:hidden;
+}
+.project-hero::after{
+  content:'';position:absolute;top:-60px;right:-60px;
+  width:300px;height:300px;
+  background:radial-gradient(circle,rgba(201,168,76,0.1) 0%,transparent 70%);
+  border-radius:50%;
+}
+.hero-tags{display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:1.2rem;}
+.hero-tag{
+  font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--gold);background:rgba(201,168,76,0.1);
+  border:1px solid rgba(201,168,76,0.25);
+  padding:0.22rem 0.7rem;border-radius:20px;font-weight:500;
+}
+.project-hero h1{
+  font-family:'Fraunces',serif;
+  font-size:clamp(1.8rem,3.5vw,2.8rem);
+  font-weight:700;color:#fff;
+  line-height:1.15;letter-spacing:-0.02em;
+  margin-bottom:1rem;
+}
+.project-hero p{
+  font-size:1rem;color:rgba(255,255,255,0.6);
+  font-weight:300;max-width:620px;line-height:1.7;
+}
+
+/* CONTENT */
+.content{max-width:860px;margin:0 auto;padding:4rem 3rem 6rem;}
+
+.section{margin-bottom:3.5rem;}
+.section-label{
+  font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--gold);font-weight:500;margin-bottom:0.4rem;
+}
+.section h2{
+  font-family:'Fraunces',serif;font-size:1.6rem;font-weight:600;
+  color:var(--navy);margin-bottom:1rem;letter-spacing:-0.01em;
+}
+.section p{font-size:0.95rem;color:#444;line-height:1.8;margin-bottom:1rem;}
+.section p:last-child{margin-bottom:0;}
+
+/* SCREENSHOT */
+.screenshot{
+  margin:2rem 0;border-radius:12px;overflow:hidden;
+  box-shadow:0 8px 32px rgba(15,25,35,0.12);
+  border:1px solid rgba(15,25,35,0.08);
+}
+.screenshot img{width:100%;display:block;}
+.screenshot-caption{
+  padding:0.75rem 1rem;background:#fff;
+  font-size:0.8rem;color:var(--muted);
+  border-top:1px solid rgba(15,25,35,0.06);
+  font-style:italic;
+}
+
+/* SCREENSHOT ROW */
+.screenshot-row{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin:2rem 0;}
+.screenshot-row .screenshot{margin:0;}
+
+/* FINDING CARDS */
+.findings{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin:1.5rem 0;}
+.finding-card{
+  background:#fff;border:1px solid rgba(15,25,35,0.07);
+  border-radius:12px;padding:1.3rem;
+  border-top:3px solid var(--gold);
+}
+.finding-num{
+  font-family:'Fraunces',serif;font-size:2rem;font-weight:700;
+  color:var(--gold);line-height:1;margin-bottom:0.4rem;
+}
+.finding-label{font-size:0.78rem;color:var(--muted);letter-spacing:0.04em;}
+.finding-desc{font-size:0.85rem;color:var(--text);margin-top:0.5rem;line-height:1.5;}
+
+/* TECH STACK */
+.tech-grid{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:0.8rem;}
+.tech-pill{
+  font-size:0.8rem;padding:0.3rem 0.8rem;border-radius:20px;
+  background:#fff;border:1px solid rgba(15,25,35,0.1);color:var(--text);
+}
+
+/* VALIDATION TABLE */
+.v-table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:0.88rem;}
+.v-table th{background:var(--navy);color:var(--gold);padding:0.75rem 1rem;text-align:left;font-weight:500;font-size:0.78rem;letter-spacing:0.06em;text-transform:uppercase;}
+.v-table td{padding:0.7rem 1rem;border-bottom:1px solid rgba(15,25,35,0.07);color:#444;}
+.v-table tr:last-child td{border-bottom:none;}
+.v-table tr:hover td{background:rgba(201,168,76,0.04);}
+.badge-pass{display:inline-block;background:rgba(52,211,153,0.1);color:#059669;border:1px solid rgba(52,211,153,0.3);padding:0.15rem 0.6rem;border-radius:20px;font-size:0.72rem;font-weight:600;}
+
+/* DIVIDER */
+.divider{height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,0.3),transparent);margin:2.5rem 0;}
+
+/* HIGHLIGHT BOX */
+.highlight{
+  background:#fff;border-left:4px solid var(--gold);
+  border-radius:0 10px 10px 0;padding:1.2rem 1.5rem;
+  margin:1.5rem 0;font-size:0.92rem;color:#444;line-height:1.7;
+}
+.highlight strong{color:var(--navy);}
+
+@media(max-width:700px){
+  .topbar{padding:0.8rem 1.2rem;}
+  .project-hero{padding:2.5rem 1.5rem 2rem;}
+  .content{padding:2.5rem 1.2rem 4rem;}
+  .screenshot-row{grid-template-columns:1fr;}
+}
+</style>
+
+</head>
+<body>
+
+<svg style="display:none">
+  <symbol id="icon-arrow-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+  <symbol id="icon-external" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 0 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+  <symbol id="icon-github" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></symbol>
+</svg>
+
+
+<div class="topbar">
+  <div class="topbar-left">
+    <a href="index.html" class="back-btn"><svg><use href="#icon-arrow-left"/></svg>Back to Portfolio</a>
+    <a href="index.html" class="topbar-name">Najib Ishiyaku Njidda</a>
+  </div>
+  <div class="topbar-right"><a href="https://public.tableau.com/views/DiabetesPatientReadmissionAnalysis/Dashboard1" target="_blank" class="btn-live"><svg><use href="#icon-external"/></svg>Live Dashboard</a><a href="https://github.com/najeebullahii/Diabetes_Readmission_Analysis" target="_blank" class="btn-gh"><svg><use href="#icon-github"/></svg>GitHub</a></div>
+</div>
+
+<div class="project-hero">
+  <div class="hero-tags">
+    <span class="hero-tag">MySQL</span>
+    <span class="hero-tag">Tableau</span>
+    <span class="hero-tag">Healthcare</span>
+    <span class="hero-tag">SQL</span>
+    <span class="hero-tag">EDA</span>
+    <span class="hero-tag">Data Cleaning</span>
+  </div>
+  <h1>Diabetes Readmission Intelligence</h1>
+  <p>Analysed 10 years of diabetic patient hospital records to identify the primary risk factors driving 30-day readmissions — and turned the findings into operational recommendations for discharge teams.</p>
+</div>
+
+<div class="content">
+
+  <div class="section">
+    <div class="section-label">Why This Matters</div>
+    <h2>The Cost of Hospital Readmissions</h2>
+    <p>Hospital readmissions within 30 days of discharge are one of the most closely watched metrics in healthcare. Preventable readmissions cost the US healthcare system over $26 billion annually, and hospitals face direct financial penalties when readmission rates exceed benchmarks.</p>
+    <p>This project analyses a decade of diabetic patient records across 130 US hospitals to identify which patient groups carry the highest risk of early readmission — and why. The pipeline runs from raw data ingestion and cleaning in MySQL through to an interactive Tableau dashboard.</p>
+
+    <div class="findings">
+      <div class="finding-card">
+        <div class="finding-num">101K+</div>
+        <div class="finding-label">Patient Records</div>
+        <div class="finding-desc">10 years of hospital encounters across 130 US hospitals</div>
+      </div>
+      <div class="finding-card">
+        <div class="finding-num">700+</div>
+        <div class="finding-label">ICD-9 Codes</div>
+        <div class="finding-desc">Mapped to 9 clinical categories using SQL CASE logic</div>
+      </div>
+      <div class="finding-card">
+        <div class="finding-num">3</div>
+        <div class="finding-label">Key Risk Factors</div>
+        <div class="finding-desc">Age, diagnosis type, and discharge destination</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section">
+    <div class="section-label">Dashboard</div>
+    <h2>Interactive Tableau Dashboard</h2>
+
+    <div class="screenshot">
+      <img src="https://raw.githubusercontent.com/najeebullahii/Diabetes_Readmission_Analysis/main/03_Visualizations/dashboard_overview.png" alt="Diabetes Readmission Dashboard">
+      <div class="screenshot-caption">The Tableau dashboard visualising readmission rates by age group, primary diagnosis category, and discharge disposition.</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section">
+    <div class="section-label">Key Findings</div>
+    <h2>Three Risk Factors That Emerged</h2>
+
+    <div class="highlight"><strong>Age is the strongest predictor.</strong> Patients over 70 showed the highest probability of 30-day readmission. This points directly to a gap in discharge planning for elderly patients — a group that frequently lacks the support infrastructure to manage post-discharge care independently.</div>
+
+    <div class="highlight"><strong>The primary driver of readmission is not diabetes.</strong> Despite the dataset consisting entirely of diabetic patients, the leading diagnosis categories associated with readmission were Circulatory and Respiratory conditions — not diabetes itself. Diabetic patients with comorbid heart or lung conditions require a different, more intensive discharge protocol.</div>
+
+    <div class="highlight"><strong>Discharge destination determines outcome.</strong> Patients discharged to home without support had measurably higher readmission rates than those transferred to Skilled Nursing Facilities or placed under Home Health Agency care. Sending a high-risk patient home without structured follow-up is itself a risk factor.</div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section">
+    <div class="section-label">Data Cleaning</div>
+    <h2>Cleaning in MySQL</h2>
+    <div class="highlight"><strong>Null Handling:</strong> Missing values originally encoded as '?' were standardised to NULL for accurate aggregation across all calculations.</div>
+    <div class="highlight"><strong>Bias Removal:</strong> Records for patients discharged to hospice or deceased were removed. These patients cannot be readmitted and would artificially deflate the readmission rate if included.</div>
+    <div class="highlight"><strong>ICD-9 Mapping:</strong> Over 700 specific diagnosis codes were grouped into 9 clinical categories — Circulatory, Respiratory, Diabetes, Digestive, Injury, Musculoskeletal, Genitourinary, Neoplasms, and Other — making the dashboard interpretable for a non-medical audience.</div>
+    <div class="highlight"><strong>Data Quality:</strong> The Weight column was dropped — over 90% of values were missing, making it unusable for analysis.</div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section">
+    <div class="section-label">Recommendations</div>
+    <h2>Operational Changes Suggested</h2>
+    <p>The analysis translates directly into three actionable interventions for hospital discharge teams.</p>
+    <div class="highlight"><strong>Senior Check-In Protocol:</strong> Implement a mandatory follow-up call within 48 hours for all patients over 70 discharged to home. This single intervention targets the highest-risk cohort.</div>
+    <div class="highlight"><strong>Comorbidity-Aware Discharge Instructions:</strong> Develop specialised documentation for diabetic patients who also present with Circulatory or Respiratory diagnoses. Standard diabetes management instructions are insufficient for this subgroup.</div>
+    <div class="highlight"><strong>Home Health Agency Expansion:</strong> Increase referrals to Home Health Agencies for patients currently classified as Home (Self Care) discharge. The data shows structured home support significantly reduces return visits.</div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section">
+    <div class="section-label">Stack</div>
+    <h2>Technology Used</h2>
+    <div class="tech-grid">
+      <span class="tech-pill">MySQL</span>
+      <span class="tech-pill">Tableau Desktop</span>
+      <span class="tech-pill">Tableau Public</span>
+      <span class="tech-pill">Excel</span>
+      <span class="tech-pill">SQL CASE Logic</span>
+      <span class="tech-pill">Git / GitHub</span>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
